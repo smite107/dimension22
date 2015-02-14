@@ -1,16 +1,9 @@
-{extends file='html.tpl'}
+{extends file='page.tpl'}
 {block name='links' append}
+	<link href="/css/index.css" rel="stylesheet" />
+	<link href="/css/header.css" rel="stylesheet" />
+	<link href="/css/footer.css" rel="stylesheet" />
 {/block}
-{block name='main'}
-<div class="row">
-    <aside class="col-md-3">menu</aside>
-    <section class="col-md-9">
-        <div class="row">
-            <section class="col-md-3">t</section>
-            <section class="col-md-3">w</section>
-            <section class="col-md-3">e</section>
-            <section class="col-md-3">n</section>
-        </div>
-    </section>
-</div>
+{block name='div.main'}
+   {include file="footer.tpl"}
 {/block}
