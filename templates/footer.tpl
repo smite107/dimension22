@@ -1,4 +1,4 @@
-<footer class="container">
-	<div class="name"><a href="/">Dota2Posts.com</a></div>
-	<div class="year">2014</div>
+<footer>
+	<div class="name"><a href="/">Dimension22©</a></div>
+	<div class="year">2015</div>
 </footer>
