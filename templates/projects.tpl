@@ -1,4 +1,4 @@
-{extends file='html.tpl'}
+{extends file='page.tpl'}
 {block name='main'}
 	<div class="row gallery" id="projects_gallery">
 		<a href="#"><div class="col-md-3 col-xs-6"><img src="/images/1.jpg" /></div></a>

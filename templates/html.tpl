@@ -13,13 +13,10 @@
     <![endif]-->
 	  {block name='links'}{/block}
     <link href="/css/styles.css" rel="stylesheet">
+    <script src="/js/glitch.js"></script>
   </head>
   <body>
-    <div class="wrapper">
-      {include file="header.tpl"}
-      {block name='main'}{/block}
-      {include file="footer.tpl"}
-    </div>
+    {block name='body'}{/block}
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>

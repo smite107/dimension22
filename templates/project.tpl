@@ -1,4 +1,4 @@
-{extends file='html.tpl'}
+{extends file='page.tpl'}
 {block name='main'}
 	<div id="project">
 		<article>
