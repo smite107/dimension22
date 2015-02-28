@@ -23,7 +23,7 @@ $(function(){
 	}, function(){
 		$(this).css('left', 0).css('top', 0).css('right', 0).css('bottom', 0);
 		$(this).css('background-color', 'black');
-		$(this).removeClass('glitch');
+		$(this).removeClass('glitch');	
 	});
 
 	setInterval(glitch, 100);

@@ -10,7 +10,15 @@ switch ($request[0]) {
 		break;
 
 	case 'walls':
-		$smarty->display('walls.tpl');
+		$smarty->display('gallery.tpl');
+		break;
+
+	case 'graphics':
+		$smarty->display('gallery.tpl');
+		break;
+	
+	case 'canvases':
+		$smarty->display('gallery.tpl');
 		break;
 
 	case 'blog':
@@ -35,6 +43,9 @@ switch ($request[0]) {
 		switch ($request[1]) {
 			case '': case 'login': case null: case false:
 			    require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.login.php';
+			    break;
+			case 'page':
+			    $smarty->display('admin.page.tpl');
 			    break;
 			default:
 	            header('Location: /admin/page');
