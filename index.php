@@ -30,11 +30,11 @@ switch ($request[0]) {
 		break;
 
 	case 'admin':
-		require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/class.Admin.php';
+		require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin_funcs.php';
 		$isLoginPage = empty($request[1]) || $request[1] == 'login';
 		if (isAdmin()) {
 			if ($isLoginPage) {
-				header('Location: /admin/page');
+				header('Location: /admin/walls');
 			}
 		} elseif (!$isLoginPage) {
 			header('Location: /admin/');
@@ -44,11 +44,11 @@ switch ($request[0]) {
 			case '': case 'login': case null: case false:
 			    require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.login.php';
 			    break;
-			case 'page':
-			    $smarty->display('admin.page.tpl');
+			case 'walls':
+			    require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.walls.php';
 			    break;
 			default:
-	            header('Location: /admin/page');
+	            header('Location: /admin/walls');
             	break;
 		}
 		break;
