@@ -47,8 +47,17 @@ switch ($request[0]) {
 			case 'walls':
 			    require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.walls.php';
 			    break;
+			case 'walls_edit':
+				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.walls.edit.php';
+			    break;
+			case 'walls_add':
+				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.walls.add.php';
+			    break; 
+			case 'upload_photo':
+				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/upload_photo.php';
+			    break;
 			default:
-	            header('Location: /admin/walls');
+	            header('Location: /admin/walls/');
             	break;
 		}
 		break;

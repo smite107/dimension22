@@ -12,7 +12,7 @@
 			    <input type="password" name="pass" id="pass">
 		    </div>
 		    <div class="buttons">
-		    	<button type="submit" name="submit" value="submit">Войти</button>
+		    	<button type="submit" name="submit" value="submit" class="btn btn-default">Войти</button>
 		    </div>
 		</form>
 	</div>

@@ -68,3 +68,12 @@ class DBConnect
 }
 
 $db = new DBConnect(DB_dsn, DB_user, DB_pass);
+
+//$query = 'INSERT INTO  walls (id) VALUES (100)';
+//$db->exec($query);
+
+
+/*$query = 'INSERT INTO ' . $table . ' (' . implode(', ', $fields) . ') '
+         . 'VALUES ('
+         . (count($fields) - 1 >= 0 ? str_repeat('?, ', count($fields) - 1) . '?' : '')
+         . ')';*/
