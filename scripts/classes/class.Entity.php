@@ -24,6 +24,12 @@ class Entity
 		return $db->query($query, array($id));
 	}
 
+	public function setFieldByName($id, $name, $value) {
+		global $db;
+		$query = 'UPDATE ' . static::TABLE . ' SET ' . $name . ' = ?' . ' WHERE id = ?';
+		return $db->query($query, array($value, $id));
+	}
+
 	public function delete($id) {
 		global $db;
 		$query = 'DELETE FROM ' . static::TABLE . ' WHERE id = ?';

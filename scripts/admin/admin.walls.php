@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Walls.php';
 
-$walls = $_walls->selectAll();
-$smarty->assign('walls', $walls)->display('admin.walls.tpl');
+$articles = $_walls->selectAll();
+$smarty->assign('articles', $articles)->assign('type', 'walls')->display('admin.gallery.tpl');
 ?>

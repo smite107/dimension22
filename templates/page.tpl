@@ -2,6 +2,11 @@
 {block name='links' append}
 	<link rel="stylesheet" type="text/css" href="/css/main_styles.css" />
     <script src="/js/glitch.js"></script>
+    <script>
+    	$(function() {
+    		$('header li[data={$active}]').addClass('active');
+    	});
+    </script>
 {/block}
 {block name='body'}
 	<div class="wrapper">

@@ -10,14 +10,14 @@ $ajaxResult = Array('result' => true, 'message' => 'Загрузка прошл�
 $_POST['__file'] = 'upload';
 
 try {
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Admin.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin_funcs.php';
 
-  if (!$_admin->IsAdmin()) {
+  if (!isAdmin()) {
     throw new Exception('Вы не можете загружать фотографии.');
   }
 
   if (!in_array($ext, $filetypes)) {
-    throw new Exception('Это разрешение не поддерживается. Только JPG.');
+    throw new Exception('У вас JPEG.');
   }
 
   $arr = getimagesize($_FILES['uploadimage']['tmp_name']);

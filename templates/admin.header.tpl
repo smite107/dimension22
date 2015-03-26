@@ -10,12 +10,12 @@
 		</div>
 		<div class="navbar-collapse collapse" style="height: 1px;">
           	<ul class="nav navbar-nav">
-	            <li class="active"><a href="/dimensions">DIMENSIONS</a></li>
-	            <li><a href="/blog">BLOG</a></li>
-	            <li><a href="/walls">WALLS</a></li>
-	            <li><a href="/graphics">GRAPHICS</a></li>
-	            <li><a href="/canvases">CANVASES</a></li>
-	            <li><a href="/about">ABOUT</a></li>
+	            <li data="dimensions"><a href="/admin/dimensions">DIMENSIONS</a></li>
+	            <li data="blog"><a href="/admin/blog">BLOG</a></li>
+	            <li data="walls"><a href="/admin/walls">WALLS</a></li>
+	            <li data="graphics"><a href="/admin/graphics">GRAPHICS</a></li>
+	            <li data="canvases"><a href="/admin/canvases">CANVASES</a></li>
+	            <li data="about"><a href="/admin/about">ABOUT</a></li>
         	</ul>
         </div>
     </div>

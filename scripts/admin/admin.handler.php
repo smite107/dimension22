@@ -1,6 +1,9 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Walls.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Canvases.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Graphics.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Images.php';
 
 if(!isset($_SESSION)) {
    @session_start();
@@ -75,7 +78,8 @@ function GetPOST()
 
 try {
    $post = GetPOST();
-   $handler = new Handler($_walls);
+   $handlers = array('walls' => $_walls, 'canvases' => $_canvases, 'graphics' => $_graphics, 'images' => $_images);
+   $handler = new Handler($handlers[$post['table']]);
    $handler->Handle($post);
 } catch (Exception $e) {
    $ajaxResult['result'] = false;

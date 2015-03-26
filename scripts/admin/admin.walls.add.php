@@ -7,6 +7,6 @@ if (isset($_POST['submit'])) {
     header('Location: /admin/walls_edit/?id=' . $id);	
 }
 
-$smarty->assign('action', 'add')->display('admin.walls.open.tpl');
+$smarty->assign('action', 'add')->assign('type', 'walls')->display('admin.gallery.article.tpl');
 
 ?>

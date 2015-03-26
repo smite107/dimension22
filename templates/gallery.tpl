@@ -4,22 +4,9 @@
 	<link rel="stylesheet" href="/css/lightbox.css">
 {/block}
 {block name='main'}
-	<div class="gallery" id="walls_gallery">
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/3.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
-		<a href="/images/1.jpg" data-lightbox="walls"><div class="preview"><img src="/images/3.jpg" /></div></a>
-		<a href="/images/2.jpg" data-lightbox="walls"><div class="preview"><img src="/images/4.jpg" /></div></a>
+	<div class="gallery" id="gallery">
+		{foreach $articles as $article}
+			<a href="/scripts/uploads/{$article['image']}_b.jpg" data-lightbox="images" data-title="{$article['caption']}"><div class="preview"><img src="/scripts/uploads/{$article['image']}_s.jpg" /></div></a>
+		{/foreach}
 	</div>
 {/block}

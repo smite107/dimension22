@@ -13,7 +13,7 @@
 						$.post(
 							"/scripts/admin/admin.handler.php",
 							{
-								table: 'Walls',
+								table: '{/literal}{$type}{literal}',
 								mode: 'Delete',
 								params: {
 									id: $id
@@ -35,11 +35,12 @@
 		{/literal}
 	</script>
 {/block}
-{block name='main'}{include 'admin.header.tpl'}
+{block name='main'}
+	{include 'admin.header.tpl'}
 	<div class="gallery" id="gallery">
-		<div><a href="/admin/walls_add" id="add" class="btn btn-default">+ Add wall</a></div>
-		{foreach $walls as $wall}
-			<div class="preview"><a href="/scripts/uploads/{$wall['id']}.jpg" data-lightbox="walls"><img src="/scripts/uploads/{$wall['id']}_s.jpg" /></a><button class="delete" data="{$wall['id']}">X</button></div>
+		<div><a href="/admin/{$type}_add" id="add" class="btn btn-default">+ Добавить</a></div>
+		{foreach $articles as $article}
+			<div class="preview"><a href="/admin/{$type}_edit/?id={$article['id']}"><img src="/scripts/uploads/{$article['image']}_s.jpg" /></a><button class="delete" data="{$article['id']}">X</button></div>
 		{/foreach}
 	</div>
 {/block}
