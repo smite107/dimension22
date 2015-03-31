@@ -6,7 +6,7 @@
 {block name='main'}
 	<div class="gallery" id="gallery">
 		{foreach $articles as $article}
-			<a href="/scripts/uploads/{$article['image']}_b.jpg" data-lightbox="images" data-title="{$article['caption']}"><div class="preview"><img src="/scripts/uploads/{$article['image']}_s.jpg" /></div></a>
+			<a href="/scripts/uploads/g{$article['image']}_b.jpg" data-lightbox="images" data-title="{$article['caption']}"><div class="preview"><img {if $article['image']}src="/scripts/uploads/g{$article['image']}_s.jpg"{else}src="/images/no-photo200x200.jpg"{/if} /></div></a>
 		{/foreach}
 	</div>
 {/block}

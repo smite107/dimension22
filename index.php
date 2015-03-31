@@ -5,8 +5,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/container.php';
 
 switch ($request[0]) {
 	case '': case null: case false: case 'dimensions':
-		$smarty->assign('active', 'dimensions');
-		$smarty->display('projects.tpl');
+		require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Dimensions.php';
+		$dimensions = $_dimensions->selectAll();
+		$smarty->assign('dimensions', $dimensions)
+			   ->assign('active', 'dimensions')
+			   ->display('dimensions.tpl');
 		break;
 
 	case 'walls':
@@ -38,9 +41,14 @@ switch ($request[0]) {
 		$smarty->display('blog.tpl');
 		break;
 
-	case 'project':
+	case 'dimension':
 		$smarty->assign('active', 'dimensions');
-		$smarty->display('project.tpl');
+		$smarty->display('dimension.tpl');
+		break;
+
+	case 'about':
+		$smarty->assign('active', 'about');
+		$smarty->display('about.tpl');
 		break;
 
 	case 'admin':
@@ -93,6 +101,18 @@ switch ($request[0]) {
 			case 'graphics_add':
 				$smarty->assign('active', 'graphics');
 				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.graphics.add.php';
+			    break; 
+			case 'dimensions':
+				$smarty->assign('active', 'dimensions');
+			    require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.dimensions.php';
+			    break;
+			case 'dimensions_edit':
+				$smarty->assign('active', 'dimensions');
+				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.dimensions.edit.php';
+			    break;
+			case 'dimensions_add':
+				$smarty->assign('active', 'dimensions');
+				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/admin.dimensions.add.php';
 			    break; 
 			case 'uploadphoto':
 				require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/admin/upload_photo.php';

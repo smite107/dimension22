@@ -8,18 +8,27 @@ try {
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Walls.php';
       $_POST['__file'] = $_images->insert();
       $_walls->setFieldByName($item_id, 'image', $_POST['__file']);
+      $_POST['__file'] = 'g' . $_POST['__file'];
       break;
 
     case 'canvases':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Canvases.php';
       $_POST['__file'] = $_images->insert();
       $_canvases->setFieldByName($item_id, 'image', $_POST['__file']);
+      $_POST['__file'] = 'g' . $_POST['__file'];
       break;
 
     case 'graphics':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Graphics.php';
       $_POST['__file'] = $_images->insert();
       $_graphics->setFieldByName($item_id, 'image', $_POST['__file']);
+      $_POST['__file'] = 'g' . $_POST['__file'];
+      break;
+
+    case 'dimensions':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.DimensionsImages.php';
+      $_POST['__file'] = 'd' . $_dimensions_images->insert(array($item_id));
+      //$_dimensions->setFieldByName($item_id, 'image', $_POST['__file']);
       break;
 
     default:

@@ -9,12 +9,12 @@
 	{literal}
 		$(function(){
 			$('div.upload_gallery div.add_photo button.upload').getUpload({
-			     'uploadType'  : '{/literal}{$type}{literal}',
-			     'item_id'     : '{/literal}{$article["id"]}{literal}',
-			     'width'       : '200',
-			     'height'      : '200',
-			     'count'       : '1',
-			     'sizes'       : 's#200#200',
+			     'uploadType'  : 'dimensions',
+			     'item_id'     : '{/literal}{$dimension["id"]}{literal}',
+			     'width'       : '360',
+			     'height'      : '250',
+			     'count'       : '3',
+			     'sizes'       : 's#360#250',
 			     'resizes'     : 'b#1000#700',
 			});
 
@@ -27,7 +27,7 @@
 					$.post(
 						"/scripts/admin/admin.handler.php",
 						{
-							table: 'images',
+							table: 'dimensions_images',
 							mode: 'Delete',
 							params: {
 								id: $id
@@ -53,17 +53,25 @@
 {block name='main'}
 	{include 'admin.header.tpl'}
 	<div class="form">
-		<form action="/admin/{$type}_{$action}" method="POST" ENCTYPE="multipart/form-data">
-			<input type="hidden" name="id" value="{$article['id']}" />
+		<form action="/admin/dimensions_{$action}" method="POST" ENCTYPE="multipart/form-data">
+			<input type="hidden" name="id" value="{$dimension['id']}" />
 			<div class="form_block">
-				<label for="caption">Подпись</label>
-				<input name="caption" id="caption" value="{$article['caption']}" />
+				<label for="name">Название</label>
+				<input name="name" id="name" value="{$dimension['name']}" />
+			</div> 
+			<div class="form_block">
+				<label for="text">Текст</label>
+				<textarea name="text" id="text">{$dimension['text']}</textarea>
+			</div> 
+			<div class="form_block">
+				<label for="background">Фон</label>
+				<input name="background" id="background" value="{$dimension['background']}" />
 			</div> 
 			{if $action == 'edit'}
 				<div id="gallery" class="upload_gallery">
-					{if $article['image']}
-						<div class="preview"><a href="/scripts/uploads/g{$article['image']}_b.jpg" data-lightbox="gallery"><img src="/scripts/uploads/g{$article['image']}_s.jpg" /></a><button class="delete" type="button" data="{$article['image']}">X</button></div>
-					{/if}
+					{foreach from = $dimension['images'] item=image}
+						<div class="preview"><a href="/scripts/uploads/d{$image['id']}_b.jpg" data-lightbox="gallery"><img src="/scripts/uploads/d{$image['id']}_s.jpg" /></a><button class="delete" type="button" data="{$image['id']}">X</button><div class="go_main"><input type="radio" name="image_main_id" id="i{$image['id']}" value="{$image['id']}" {if $image['id'] == $dimension['image_main_id']}checked="checked"{/if} /><label for="i{$image['id']}">go main</label></div></div>
+					{/foreach}
 					<div class="add_photo">
 						<button class="upload btn btn-default" type="submit">Добавить фото</button>
 					</div>

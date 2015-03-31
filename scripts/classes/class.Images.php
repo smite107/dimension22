@@ -13,9 +13,9 @@ class Images extends Entity
 
 	public function delete($id) {
 		parent::delete($id);
-		unlink($_SERVER['DOCUMENT_ROOT'] . '/scripts/uploads/' . $id . '.jpg');
-		unlink($_SERVER['DOCUMENT_ROOT'] . '/scripts/uploads/' . $id . '_s.jpg');
-		unlink($_SERVER['DOCUMENT_ROOT'] . '/scripts/uploads/' . $id . '_b.jpg');
+		unlink($_SERVER['DOCUMENT_ROOT'] . '/scripts/uploads/g' . $id . '.jpg');
+		unlink($_SERVER['DOCUMENT_ROOT'] . '/scripts/uploads/g' . $id . '_s.jpg');
+		unlink($_SERVER['DOCUMENT_ROOT'] . '/scripts/uploads/g' . $id . '_b.jpg');
 	}
 
 }

@@ -1,9 +1,13 @@
 <?php
 
+error_reporting( E_ERROR );
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Walls.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Canvases.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Graphics.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Images.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.Dimensions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/scripts/classes/class.DimensionsImages.php';
 
 if(!isset($_SESSION)) {
    @session_start();
@@ -78,7 +82,12 @@ function GetPOST()
 
 try {
    $post = GetPOST();
-   $handlers = array('walls' => $_walls, 'canvases' => $_canvases, 'graphics' => $_graphics, 'images' => $_images);
+   $handlers = array('walls'             => $_walls, 
+                     'canvases'          => $_canvases, 
+                     'graphics'          => $_graphics, 
+                     'images'            => $_images, 
+                     'dimensions'        => $_dimensions, 
+                     'dimensions_images' => $_dimensions_images);
    $handler = new Handler($handlers[$post['table']]);
    $handler->Handle($post);
 } catch (Exception $e) {

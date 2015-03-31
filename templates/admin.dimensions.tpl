@@ -13,7 +13,7 @@
 						$.post(
 							"/scripts/admin/admin.handler.php",
 							{
-								table: '{/literal}{$type}{literal}',
+								table: 'dimensions',
 								mode: 'Delete',
 								params: {
 									id: $id
@@ -38,9 +38,9 @@
 {block name='main'}
 	{include 'admin.header.tpl'}
 	<div class="gallery" id="gallery">
-		<div><a href="/admin/{$type}_add" id="add" class="btn btn-default">+ Добавить</a></div>
-		{foreach $articles as $article}
-			<div class="preview"><a href="/admin/{$type}_edit/?id={$article['id']}"><img {if $article['image']}src="/scripts/uploads/g{$article['image']}_s.jpg"{else}src="/images/no-photo200x200.jpg"{/if} /></a><button class="delete" type="button" data="{$article['id']}">X</button></div>
+		<div><a href="/admin/dimensions_add" id="add" class="btn btn-default">+ Добавить</a></div>
+		{foreach $dimensions as $dimension}
+			<div class="preview"><a href="/admin/dimensions_edit/?id={$dimension['id']}"><img {if $dimension['image_main_id']}src="/scripts/uploads/d{$dimension['image_main_id']}_s.jpg"{else}src="/images/no-photo360x250.jpg"{/if} /></a><button class="delete" type="button" data="{$dimension['id']}">X</button></div>
 		{/foreach}
 	</div>
 {/block}
